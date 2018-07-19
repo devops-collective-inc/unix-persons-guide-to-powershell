@@ -27,6 +27,7 @@ If you try doing this in Powershell, it doesn't work so well. If you do this:
 
 ````
 set-alias cdtemp "cd c:\temp"
+
 cdtemp
 ````
 
@@ -34,10 +35,17 @@ cdtemp
 
 ````
 cdtemp : The term 'cd c:\temp' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+
 At line:1 char:1
+
 + cdtemp
+
 + ~~~~~~
-    + CategoryInfo          : ObjectNotFound: (cd c:\temp:String) [], CommandNotFoundException
+
+    + CategoryInfo          : ObjectNotFound: (cd c:\temp:String) [], 
+    
+    CommandNotFoundException
+    
     + FullyQualifiedErrorId : CommandNotFoundException
 ````
 
@@ -45,6 +53,7 @@ A way around this is to create a function instead:
 
 ````
 remove-item -path alias:cdtemp
+
 function cdtemp {cd c:\temp}
 ````
 
@@ -70,13 +79,21 @@ apropos process
 
 ````
 AF_LOCAL [unix]      (7)  - Sockets for local interprocess communication
+
 AF_UNIX [unix]       (7)  - Sockets for local interprocess communication
+
 Apache2::Process     (3pm)  - Perl API for Apache process record
+
 BSD::Resource        (3pm)  - BSD process resource limit and priority functions
+
 CPU_CLR [sched_setaffinity] (2)  - set and get a process's CPU affinity mask
+
 CPU_ISSET [sched_setaffinity] (2)  - set and get a process's CPU affinity mask
+
 CPU_SET [sched_setaffinity] (2)  - set and get a process's CPU affinity mask
+
 CPU_ZERO [sched_setaffinity] (2)  - set and get a process's CPU affinity mask
+
 GConf2              (rpm) - A process-transparent configuration system
 
 ````
@@ -87,10 +104,15 @@ The Powershell equivalent of `apropos` or `man -k` is simply `get-help`
 get-help process
 
 Name                  Category  Module     Synopsis
+
 ----                  --------  ------     --------
+
 get-dbprocesses       Function             Get processes for a particul...
+
 show-dbprocesses      Function             Show processes for a particu...
+
 Debug-Process         Cmdlet    Microso... Debugs one or more processes...
+
 Get-Process           Cmdlet    Microso... Gets the processes that are ...
 ````
 

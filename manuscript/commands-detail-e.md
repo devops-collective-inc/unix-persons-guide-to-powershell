@@ -30,6 +30,7 @@ you get:
 ````
 Blue is the colour$
 ````
+
 ....with your cursor ending up on the same line as the output, just after the dollar prompt
 
 Powershell has an exact equivalent of 'echo -n'. If you type:
@@ -98,7 +99,9 @@ The PowerShell equivalent is to seperate the two strings with a comma, so:
 ````
 $ select-string  stamford,blue blue_flag.txt
 ````
+
 ...returns:
+
 
 ````
 blue_flag.txt:2:We'll keep the blue flag flying high
@@ -174,5 +177,5 @@ function prompt {
  }
 ````
 
-I found this on <a href="http://msmvps.com/blogs/richardsiddaway/archive/2013/07/21/fun-with-prompts.aspx">Richard Siddaway's Blog</a>
+I found this on Richard Siddaway's blog: <http://msmvps.com/blogs/richardsiddaway/archive/2013/07/21/fun-with-prompts.aspx>
 

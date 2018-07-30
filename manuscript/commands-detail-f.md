@@ -6,13 +6,21 @@ The bash `find` command has loads of functionality - I could possibly devote man
 ````
 
 find . -name '*BB.txt'
+
 ./Archive/Script_WO7171BB.txt
+
 ./Archive/Script_WO8541BB.txt
+
 ./Archive/Script_WO8645_BB.txt
+
 ./Archive/WO8559B/Script_WO8559_Master_ScriptBB.txt
+
 ./Archive/WO8559B/WO8559_finalBB.txt
+
 ./Archive/WO8559B/WO8559_part1BB.txt
+
 ./Archive/WO8559B/WO8559_part2BB.txt
+
 ````
 
 The simplest Powershell equivalent of the bash `find` is simply to stick a `-recurse` on the end of a `dir` command

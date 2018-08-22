@@ -75,7 +75,9 @@ Anyway on bash, if you type:
 ````
 apropos process
 ````
+
 ...then you get:
+
 
 ````
 AF_LOCAL [unix]      (7)  - Sockets for local interprocess communication

@@ -23,7 +23,7 @@ get-help
 
 There are a couple of things to note about `get-help`.
 
-There are two much-used options: `-full` and `-examples`. They both do exactly what you'd expect, I think. To give some idea of scale, on my laptop `get-help get-process` currently returns just over a screenful of information, wherease `get-help -get-process -full` returns 9 screenfuls.
+There are two much-used options: `-full` and `-examples`. They both do what you'd expect, I think. To give some idea of scale, on my laptop `get-help get-process` currently returns just over a screenful of information, whereas `get-help -get-process -full` returns 9 screenfuls.
 
 The help text can be brought up-to-date by running update-help from the command line.
 
@@ -36,6 +36,7 @@ In \*nix `man -k` allows you to search through all the man pages for mentions of
 There's no seperate command for this in PowerShell, because the `get-help` command does this by default if it doesn't find a direct match.
 
 So, if you type `get-help get-process` you would get this:
+
 ````
 NAME
     Get-Process
@@ -47,10 +48,9 @@ SYNOPSIS
 SYNTAX
     Get-Process [[-Name] <String[]>] [-ComputerName <String[]>] [-FileVersionInfo] [-Module] [<CommonParameters>]
 
-    Get-Process [-ComputerName <String[]>] [-FileVersionInfo] [-Module] -InputObject <Process[]> [<CommonParameters>]
-
 etc....
 ````
+
 ...whereas if you typed `get-help process` you would get a list of help topics related to 'process'[1]:
 
 ````
@@ -83,7 +83,7 @@ Rename-Item
 ## Footnotes
 ---
 
-[1] To be honest, I actually did `get-help process | select name, category, synopsis | ft -a` to tidy up the output for the e-book.
+[1] I actually did `get-help process | select name, category, synopsis | ft -a` to tidy up the output for the e-book.
 
 [2] I found that in my current PowerShell installs, there wasn't much information on `more`.  The `get-help` command returned the barest of details.
 

@@ -12,6 +12,7 @@ remove-item -path alias:cdtemp
 
 
 `uname -s` in Unix, according to the man page, gives the 'kernel-version' of the OS. This is the 'top-level version' of the Unix that you're on. Typical values are 'Linux', or 'AIX' or 'HP-UX'. So, on my laptop, typing `uname -s` gives:
+
 ````
 Linux
 ````
@@ -23,24 +24,33 @@ Obviously, there's only one manufacturer for Windows software - Microsoft. So th
 get-wmiobject -class win32_operatingsystem | select caption
 
 This returns:
+
 ````
 caption
 -------
 Microsoft Windows 7 Professional
 ````
+
 or
+
 ````
 Microsoft Windows 8.1 Pro
 ````
+
 or
+
 ````
 Microsoft(R) Windows(R) Server 2003, Standard Edition
 ````
+
 or
+
 ````
 Microsoft Windows Server 2008 R2 Enterprise
 ````
+
 or
+
 ````
 Microsoft Windows Server 2012 Standard
 ````

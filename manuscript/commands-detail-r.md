@@ -1,6 +1,7 @@
 # commands detail - r
 
 ## read -p
+
 In \*nix:
 
 ````
@@ -10,8 +11,9 @@ echo $team
 In Powershell:
 
 ````
-$team = read-host "Which is the only London club to win the Champions League? "
+$team = read-host "Which is the only London club to win the Champions League?"
 Which is the only London club to win the Champions League? : Chelsea
+
 $team
 Chelsea
 ````

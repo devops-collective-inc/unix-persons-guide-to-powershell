@@ -10,9 +10,11 @@ start-transcript
 
 ````
 start-sleep -seconds 5
+````
 
 or 
 
+````
 start-sleep -milliseconds 250
 ````
 
@@ -29,7 +31,7 @@ sleep 3
 ## sort  
 
 ````
-get-process | sort-object VirtualMemorySize
+get-process | sort-object -property VirtualMemorySize
 ````
 
 

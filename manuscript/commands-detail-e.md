@@ -6,6 +6,7 @@
 - `write-output`
 
 You use it as follows:
+
 ````
 write-output "Blue is the colour"
 ````
@@ -41,7 +42,6 @@ PS C:\Users\matt> write-host -nonewline "Blue is the colour"
 
 ....then you get this:
 
-
 ````
 PS C:\Users\matt> write-host -nonewline "Blue is the colour"
 Blue is the colourPS C:\Users\matt>
@@ -67,6 +67,7 @@ select-string stamford blue_flag.txt
 ````
 
 ...would return:
+
 ````
 blue_flag.txt:3:From Stamford Bridge to Wembley
 ````
@@ -171,6 +172,7 @@ export PS1="$ "
 ````
 
 The Powershell equivalent to this is:
+
 ````
 function prompt {
  "$ "

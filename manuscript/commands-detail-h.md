@@ -15,6 +15,7 @@ The Powershell equivalent of `history` is:
 ````
 get-history 
 ````
+
 There is a built in alias `history`
 
 It's worth noting that history doesn't persist across PowerShell sessions, although if you search online there are a couple of published techniques for making it persistent.
@@ -41,8 +42,9 @@ StartExecutionTime Property   datetime StartExecutionTime {get;}
 ## history | egrep -i ls
 
 There is no direct equivalent of the shell functionality you get with `set -o vi` sadly. You can up- and down- arrow by default, but if you want to search through your history then you need to do something like this
+
 ````
-history | select commandline | where-object {$_.commandline -like '*ls*'} | fl
+history | select commandline | where-object {$_.commandline -like '*ls*'} 
 ````
 
 
@@ -53,7 +55,7 @@ history | select commandline | where-object {$_.commandline -like '*ls*'} | fl
 There is a windows `hostname` which does much the same thing as the Unix
 `hostname`, but it's not Powershell. It's a standard-ish Windows executable that on my machine lives in c:\windows\system32
 
-Details are here: <a href="http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/hostname.mspx?mfr=true">Microsoft Windows XP - Hostname</a>
+Details are here: <https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/hostname>
 
 You can get the server name through PowerShell like this:
 

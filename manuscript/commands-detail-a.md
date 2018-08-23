@@ -57,7 +57,7 @@ remove-item -path alias:cdtemp
 function cdtemp {cd c:\temp}
 ````
 
-You can then create an alias for the function:
+You could then create an alias for the function:
 
 ````
 set-alias cdt cdtemp

@@ -4,9 +4,9 @@ The point of this section is to outline a few areas which I think \*nix people s
 ## Resources for learning PowerShell
 A _full_ introduction to PowerShell is beyond the scope of this e-book. My recommendations for an end-to-end view of PowerShell are:
 
-- <a href="http://www.manning.com/jones3/">Learn Windows PowerShell in a Month of Lunches</a> - Written by powershell.org's Don Jones and Jeffery Hicks, I would guess that this is the book that most people have used to learn Powershell. It's 'the Llama book' of Powershell.
+- [Learn Windows PowerShell in a Month of Lunches](http://www.manning.com/jones3/) - Written by powershell.org's Don Jones and Jeffery Hicks, I would guess that this is the book that most people have used to learn Powershell.
 
-- Microsoft Virtual Academy's <a href="http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-powershell-3-0-jump-start">'Getting Started with PowerShell' </a> and <a href="http://www.microsoftvirtualacademy.com/training-courses/advanced-tools-scripting-with-powershell-3-0-jump-start">'Advanced Tools & Scripting with PowerShell'</a> Jump Start courses - these are recordings of day long webcasts, and are both free.
+- Microsoft Virtual Academy's two PowerShell 'Jump Start' videos [Getting Started with PowerShell](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-powershell-3-0-jump-start) and [Advanced Tools & Scripting with PowerShell](http://www.microsoftvirtualacademy.com/training-courses/advanced-tools-scripting-with-powershell-3-0-jump-start)
 
 
 ## unix-like aliases
@@ -15,6 +15,7 @@ PowerShell is a friendly environment for Unix people to work in. Many of the con
 ````
 ls
 ````
+
 ....and get this:
 
 ````
@@ -24,9 +25,12 @@ Mode                LastWriteTime     Length Name
 -a---        22/02/2015     16:51      25773 all_the_details.md
 -a---        20/02/2015     07:31       3390 commands-summary.md
 ````
-These can be quite useful when you're switching between shells, although I found that it can be irritating when the 'muscle-memory' kicks in and you find yourself typing `ls -ltr` in PowerShell and get an error. The 'ls' is just an alias for the PowerShell `get-childitem` and the Powershell command doesn't understand `-ltr`[1].
- 
 
+These can be quite useful when you're switching between shells, although I found that it can be irritating when the 'muscle-memory' kicks in and you find yourself typing `ls -ltr` in PowerShell and get an error. 
+
+
+ 
+ 
 ## the pipeline 
 
 The PowerShell pipeline is much the same as the Bash shell pipeline. The output of one command is piped to another one with the '`|`' symbol.
@@ -46,26 +50,30 @@ ps -ef | cut -c 49-70
 ````
 get-process | select ProcessName
 ````
+
 In Bash you are working with characters, or tab-delimited fields. In PowerShell you work with field names, which are known as 'properties'.
+
+You can determine the properties of a Powershell object with the command `get-member`
 
 ## get-help, get-command, get-member
 
 #### get-member
+
 When you run a PowerShell command, such as `get-history` only a subset of the `get-history` output is returned to the screen.
 
 In the case of `get-history`, by default two properties are shown - 'Id' and 'Commandline'...
 
-````
+~~~
 $ get-history
 
-  Id CommandLine
-  -- -----------
-   1 dir -recurse c:\temp
-````
+Id CommandLine
+-- -----------
+1  dir -recurse c:\temp
+~~~
 
 ...but get-history has 4 other properties which you might or might not be interested in:
 
-````
+~~~
 $ get-history | select *
 
 Id                 : 1
@@ -73,23 +81,25 @@ CommandLine        : dir -recurse c:\temp
 ExecutionStatus    : Completed
 StartExecutionTime : 06/05/2015 13:46:56
 EndExecutionTime   : 06/05/2015 13:47:07
-````
+~~~
 
 
-The disparity between what is shown and what is available is even greater for more complex entities like 'process'. By default `get-process` shows 8 columns, but there are actually over 50 properties (as well as 20 or so methods) available.
+The disparity between what is shown and what is available is even greater for more complex entities like 'process'. By default, on my screen,  `get-process` shows 8 columns, but there are actually over 50 properties (as well as 20 or so methods) available.
 
 The full range of what you can return from a PowerShell command is given by the `get-member` command[2].
 
 To run `get-member`, you pipe the output of the command you're interested in to it, for example:
 
-````
+~~~
 get-process | get-member
-````
+~~~
+
 ....or, more typically:
 
-````
+~~~
 get-process | gm
-````
+~~~
+
 
 `get-member` is one of the 'trinity' of 'help'-ful commands:
 
@@ -103,7 +113,7 @@ get-process | gm
 
 So if you type `get-help get-process`, you'll get this:
 
-````
+~~~
 NAME
     Get-Process
 
@@ -143,17 +153,20 @@ REMARKS
     For more information, type: "get-help Get-Process -detailed".
     For technical information, type: "get-help Get-Process -full".
     For online help, type: "get-help Get-Process -online"
-````
+~~~
 
 There are a couple of wrinkles which actually make the PowerShell 'help' even more _help_-ful.
 
--  you get basic help by typing `get-help`, more help by typing `get-help -full` and...probably the best bit as far as I'm concerned...you can cut to the chase by typing `get-help -examples`</li>
+-  you get basic help by typing `get-help`, more help by typing `get-help -full` and...probably the best bit as far as I'm concerned...you can cut to the chase by typing `get-help -examples`
 
--  there are lots of '`about_`' pages. These cover concepts, new features (in for example `about_Windows_Powershell_5.0`) and subjects which dont just relate to one particular command. You can see a full list of the 'about' topics by typing `get-help about`</li>
 
--  get-help works like `man -k` or `apropos`. If you're not sure of the command you want to see help on, just type `help process` and you'll see a list of all the help topics that talk about processes. If there was only one it would just show you that topic</li>
+-  there are lots of '`about_`' pages. These cover concepts, new features (in for example `about_Windows_Powershell_5.0`) and subjects which dont just relate to one particular command. You can see a full list of the 'about' topics by typing `get-help about`
 
--  _Comment-based help_. When you write your own commands you can (and should!) use the comment-based help functionality. You follow a loose template for writing a comment header block, and then this becomes part of the get-help subsystem. It's good.</li>
+
+-  get-help works like `man -k` or `apropos`. If you're not sure of the command you want to see help on, just type `help process` and you'll see a list of all the help topics that talk about processes. If there was only one it would just show you that topic
+
+
+-  Comment-based help. When you write your own commands you can (and should!) use the comment-based help functionality. You follow a loose template for writing a comment header block, and then this becomes part of the get-help subsystem. It's good.
 
 
 #### get-command
@@ -166,7 +179,10 @@ For example, I tend to need to look up the spelling of `ConvertTo-Csv`  on a fai
 To quickly look it up I can type:
 
 `get-command *csv*`
+
+
 ... which returns:
+
 
 ````
 $ get-command *csv*
@@ -190,37 +206,41 @@ Typically PowerShell coding is done in the form of  _functions_[4]. What you do 
 
 Create a function in a plain text .ps1 file[5]
 
-````
+~~~
 gvim say-HelloWorld.ps1
-````
+~~~
+
 ![say-helloworld.png](images/say-helloworld.png)
 
 ...then source the function when they need it
 
-````
+
+~~~
 $ . .\say-HelloWorld.ps1
-````
+~~~
+
 ...then run it
 
-````
+~~~
 $ say-helloworld
 Hello, World
 
-````
+~~~
+
 Often people autoload their functions in their `$profile` or other startup script, as follows:
 
-````
+~~~
 write-verbose "About to load functions"
 foreach ($FUNC in $(dir $FUNCTION_DIR\*.ps1))  
 {
   write-verbose "Loading $FUNC.... "
   . $FUNC.FullName
 }
-````
+~~~
 
 ## Footnotes
 ---
-[1] If you wanted the equivalent of `ls -ltr` you would use `gci | sort lastwritetime`. 'gci' is an alias for 'get-childitem', and I think, 'sort' is an alias for 'sort-object'.
+[1] If you wanted the equivalent of `ls -ltr` you would use `gci | sort lastwritetime`. 'gci' is an alias for 'get-childitem', 'sort' is an alias for 'sort-object'.
 
 [2]  Another way of returning all of the properties of an object is to use 'select \*'...so in this case you could type `get-process | select *`
 

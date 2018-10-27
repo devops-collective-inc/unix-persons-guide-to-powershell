@@ -16,6 +16,7 @@ get-process -ComputerName bigserver gvim*
 ````
 
 You can use `select` and `where` to 'slice and dice' the information.
+
 ````
 get-process  | 
   where {$_.PeakWorkingSet -gt 1Mb } | select ProcessName,PeakWorkingSet
@@ -36,6 +37,12 @@ If you wanted to just see details of your process you could do this:
 ````
 get-process -pid $PID
 ````
+
+`$PID` is an 'automatic variable' which contains the PID (process identifier) of the current process
+
+For a list of automatic variables see <https://docs.microsoft.com/en-gb/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-6&viewFallbackFrom=powershell-Microsoft.PowerShell.Core> 
+
+
 
 ### ps -ejH (print a process tree)
 

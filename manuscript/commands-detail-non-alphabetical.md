@@ -1,3 +1,3 @@
 # commands detail - non-alphabetical
 
-Write here...
+To be completed

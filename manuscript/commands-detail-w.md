@@ -15,7 +15,7 @@ gc c:\temp\file.txt | measure-object -line
 
 ## whoami
 
-This shows user that you are logged on as:
+This shows the user that you are logged on as:
 
 ````
 [Security.Principal.WindowsIdentity]::GetCurrent() | select name
@@ -24,28 +24,21 @@ This shows user that you are logged on as:
 
 
 ## whence or type
-There isn't a single equivalent to the unix ````whence```` command, but there are a couple of things worth mentioning.
+There isn't a close equivalent to the unix ````whence```` command, because within Powershell there isn't a PATH variable for scripts. The environment's PATH and PSMODULEPATH list the folders for windows executables and for Powershell modules.
 
-This shows the sort of thing (exe, bat, alias, function) that you're looking at:
-
-````
-get-command whoami
-
-CommandType     Name                                               ModuleName
------------     ----                                               ----------
-Application     whoami.exe
-````
-
-....and if what you're looking for is a file in your path, then this will find it 
+`get-command` shows the location of the windows executable, the name of the Powershell module or the translation of the alias, as follows:
 
 ````
-foreach ($FOLDER in $ENV:PATH.split(";") ) { dir $FOLDER\whoami.exe -ea Si | select fullname }
+get-command whoami,Get-Command,invoke-sqlcmd,sserv,schtasks.exe | select name,version,source,DisplayName
 
-FullName
---------
-C:\Windows\system32\whoami.exe
+Name          Version      Source                           DisplayName                      
+----          -------      ------                           -----------                      
+whoami.exe    10.0.17134.1 c:\windows\system32\whoami.exe                                    
+Get-Command   3.0.0.0      Microsoft.PowerShell.Core                                         
+Invoke-Sqlcmd 1.0          sqlps                                                             
+sserv         0.0          WindowsStuff                     sserv -> show-nonstandardservices
+schtasks.exe  10.0.17134.1 c:\windows\system32\schtasks.exe                                  
+
 ````
 
-This splits the path into its constituent folders, then does a _dir_ to see if
-the file (in this case I'm looking for _whoami.exe_) exists in each.
 

@@ -70,7 +70,7 @@ else
 
 ## Footnotes
 
-[1] The way I've rendered the PowerShell here isn't great, but I've left it like that because for a couple of reasons. First, it shows the similarity between PowerShell and Bash, which I think is encouraging for anyone reading this e-book. Second it allows me make a brief point about using aliases.  
+[1] The way I've rendered the PowerShell here isn't great, but I've left it like that for a couple of reasons. First, it shows the similarity between PowerShell and Bash, which I think is encouraging for anyone reading this e-book. Second it allows me make this brief point about using aliases.  
 
 `echo` is handy. It's short, and it looks like it does the same thing as `echo` in Unix, MS-DOS and probably a few other languages besides. It pretty much does...but does `echo` alias `write-output` which allows you to pipe to other PowerShell commands, or does it alias to `write-host`, which doesn't?
 

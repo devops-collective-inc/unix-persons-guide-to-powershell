@@ -3,6 +3,7 @@
 ## kill
 
 The equivalent of bash's `kill` is:
+
 ````
 stop-process
 ````

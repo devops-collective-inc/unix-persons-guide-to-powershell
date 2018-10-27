@@ -6,6 +6,8 @@
 gc file.txt | select-object -last 10
 ````
 
+`gc` is an alias for `get-command`
+
 ## tail -f
 
 ````
@@ -14,7 +16,7 @@ gc -tail 10 -wait c:\windows\windowsupdate.log
 
 ## tee
 
-The Powershell equivalent of the unix _tee_ is _tee-object_....which, by default is aliased to _tee_
+The Powershell equivalent of the unix `tee` is `tee-object`....which, by default is aliased to `tee`
 
 So you can do this:
 

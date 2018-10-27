@@ -2,7 +2,9 @@
 
 ## locate
 
-There isn't a builtin PowerShell version of locate, but Chrissy LeMaire's (<a href="http://blog.netnerds.net">website</a>) has written an <a href="https://gallery.technet.microsoft.com/scriptcenter/Invoke-Locate-PowerShell-0aa2673a">Invoke-Locate script</a> 'in the spirit of (Linux/Unix) GNU findutils' locate'. It works really well
+There isn't a builtin PowerShell version of locate, but Chrissy LeMaire's has written an Invoke-Locate script, 'in the spirit of (Linux/Unix) GNU findutils' locate'. It works really well.
+
+<https://gallery.technet.microsoft.com/scriptcenter/Invoke-Locate-PowerShell-0aa2673a>
 
 
 ## ls
@@ -25,6 +27,7 @@ So _ls_ gives:
 $ ls
 README.md
 ````
+
 but _ls -a_ gives
 
 ````
@@ -41,15 +44,11 @@ $ ls
 
     Directory: C:\Users\matt\Documents\WindowsPowerShell\functions
 
-
 Mode                LastWriteTime     Length Name  
 ----                -------------     ------ ---- 
 -a---        04/06/2015     13:20       1422 README.md
 
-
-
 $ ls -force
-
 
     Directory: C:\Users\matt\Documents\WindowsPowerShell\functions
 

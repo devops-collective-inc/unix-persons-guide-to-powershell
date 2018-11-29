@@ -3,17 +3,17 @@
 ## basename
 A rough PowerShell equivalent for the unix _basename_ is:
 
-````
+~~~~~~~~
 dir <whatever> | select name
-````
+~~~~~~~~
 
 This depends on the file actually existing, whereas _basename_ doesn't care.
  
 A more precise (but perhaps less concise) alternative[1] is:
 
-````
+~~~~~~~~
 [System.IO.Path]::GetFileName('c:\temp\double_winners.txt')
-````
+~~~~~~~~
 
 
 ---

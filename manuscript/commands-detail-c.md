@@ -9,9 +9,9 @@ There's no one-liner equivalent for the Linux `cal`, but there's a useful script
 ## cd
 The PowerShell equivalent of `cd` is:
 
-````
+~~~~~~~~
 Set-Location 
-````
+~~~~~~~~
 
 ...although there is a builtin PowerShell alias `cd` which points at `set-location`
 
@@ -21,9 +21,9 @@ Set-Location
 ## clear
 The unix `clear` command clears your screen. The Powershell equivalent to the unix `clear` is
 
-````
+~~~~~~~~
 clear-host
-````
+~~~~~~~~
 
 PowerShell also has built-in alias `clear` for `clear-host`.
 
@@ -37,24 +37,24 @@ The Powershell `Clear-host` on the other hand seems to wipe the previous output 
 
 The Posh version of cp is
 
-```
+~~~~~~~~
 copy-item
 
-```
+~~~~~~~~
 
 The following are built-in aliases for copy-item:
 
-````
+~~~~~~~~
 cp
 
 copy
-````
+~~~~~~~~
 
 ## cp -R
 
 To recursively copy:
 
-````
+~~~~~~~~
 copy -recurse
-````
+~~~~~~~~
 

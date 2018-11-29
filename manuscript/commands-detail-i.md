@@ -4,7 +4,7 @@
 
 The bash `if-then-elif-else` as per:
 
-````
+~~~~~~~~
 HOUR_OF_DAY=$(date +'%H') 
 
 if  [ $HOUR_OF_DAY -lt 6 ]
@@ -19,11 +19,11 @@ then
 else
   echo "Nightime again"
 fi
-````
+~~~~~~~~
 
 ...could be rendered in PowerShell as:
 
-````
+~~~~~~~~
 [int]$HourOfDay = $(get-date -UFormat '%H')
 
 if  ( $HourOfDay -lt 6 )
@@ -42,13 +42,13 @@ else
 {
   write-output "Nightime again"
 }
-````
+~~~~~~~~
 
 ## if [ -f "$FileName" ]
 
 Testing for the existence of a file in bash is done as follows
 
-````
+~~~~~~~~
 export FileName=~/.matt
 if [ -f "$FileName" ]
 then
@@ -56,17 +56,17 @@ then
 else
   echo "$FileName not found."
 fi
-````
+~~~~~~~~
 
 In PowerShell this could be[1]
 
-````
+~~~~~~~~
 $FileName = "c:\powershell\.matt.ps1x"
 if (test-path $FileName) 
   {echo "$FileName found"}
 else
   {echo "$FileName not found"}
-````
+~~~~~~~~
 
 ## Footnotes
 
@@ -78,25 +78,25 @@ I've been using PowerShell for a few years now but I didn't know. I had to look 
 
 Also, in PowerShell scripts rather than this:
 
-````
+~~~~~~~~
 if (test-path $FileName) 
   {write-host "$FileName found"}
-````
+~~~~~~~~
 
 ...it would typically be seen as better to format using one of these two alternatives:
 
-````
+~~~~~~~~
 if (test-path $FileName) {
   write-host "$FileName found"
 }
-````
+~~~~~~~~
 or:
 
-````
+~~~~~~~~
 if (test-path $FileName) 
 {
   write-host "$FileName found"
 }
-````
+~~~~~~~~
 
 

@@ -2,12 +2,6 @@
 
 While the first version of this e-book is being written this list will be largely mechanical stuff which needs to be done to get the e-book into a suitable state. Subsequently it will be more a list of unix stuff for which I/we stilll need to find or document a PowerShell equivalent.
 
-# # for version '1.0'
-- more or the resources, perhaps
-
-
-- check  each page in pdf or word
-
 
 ## for future versions
 

@@ -12,19 +12,19 @@ A _full_ introduction to PowerShell is beyond the scope of this e-book. My recom
 ## unix-like aliases
 PowerShell is a friendly environment for Unix people to work in. Many of the concepts are similar, and the PowerShell team have built in a number of Powershell aliases that look like unix commands. So, you can, for example type:
 
-````
+~~~~~~~~
 ls
-````
+~~~~~~~~
 
 ....and get this:
 
-````
+~~~~~~~~
     Directory: C:\temp
 Mode                LastWriteTime     Length Name
 ----                -------------     ------ ----
 -a---        22/02/2015     16:51      25773 all_the_details.md
 -a---        20/02/2015     07:31       3390 commands-summary.md
-````
+~~~~~~~~
 
 These can be quite useful when you're switching between shells, although I found that it can be irritating when the 'muscle-memory' kicks in and you find yourself typing `ls -ltr` in PowerShell and get an error. 
 
@@ -41,15 +41,15 @@ This sounds like it's going to be a big deal, but it's not really.
 
 In practice, if you wanted to get a list of process names, in bash you might do this:
 
-````
+~~~~~~~~
 ps -ef | cut -c 49-70
-````
+~~~~~~~~
 
 ...whereas In PowerShell you would do this:
 
-````
+~~~~~~~~
 get-process | select ProcessName
-````
+~~~~~~~~
 
 In Bash you are working with characters, or tab-delimited fields. In PowerShell you work with field names, which are known as 'properties'.
 
@@ -184,7 +184,7 @@ To quickly look it up I can type:
 ... which returns:
 
 
-````
+~~~~~~~~
 $ get-command *csv*
 
 CommandType     Name                    ModuleName
@@ -198,7 +198,7 @@ Cmdlet          Import-Csv              Microsoft.PowerShell.Utility
 Application     ucsvc.exe
 Application     vmicsvc.exe
 
-````
+~~~~~~~~
 
 
 ## Functions
@@ -206,37 +206,37 @@ Typically PowerShell coding is done in the form of  _functions_[4]. What you do 
 
 Create a function in a plain text .ps1 file[5]
 
-~~~
+~~~~~~~~
 gvim say-HelloWorld.ps1
-~~~
+~~~~~~~~
 
 ![say-helloworld.png](images/say-helloworld.png)
 
 ...then source the function when they need it
 
 
-~~~
+~~~~~~~~
 $ . .\say-HelloWorld.ps1
-~~~
+~~~~~~~~
 
 ...then run it
 
-~~~
+~~~~~~~~
 $ say-helloworld
 Hello, World
 
-~~~
+~~~~~~~~
 
 Often people autoload their functions in their `$profile` or other startup script, as follows:
 
-~~~
+~~~~~~~~
 write-verbose "About to load functions"
 foreach ($FUNC in $(dir $FUNCTION_DIR\*.ps1))  
 {
   write-verbose "Loading $FUNC.... "
   . $FUNC.FullName
 }
-~~~
+~~~~~~~~
 
 ## Footnotes
 ---

@@ -4,24 +4,24 @@
 
 The PowerShell equivalent of the `ps` command is:
 
-````
+~~~~~~~~
 get-process
-````
+~~~~~~~~
 
 
 You can use `get-process` to get information about other computers:
 
-````
+~~~~~~~~
 get-process -ComputerName bigserver gvim*  
-````
+~~~~~~~~
 
 You can use `select` and `where` to 'slice and dice' the information.
 
-````
+~~~~~~~~
 get-process  | 
   where {$_.PeakWorkingSet -gt 1Mb } | select ProcessName,PeakWorkingSet
 
-````
+~~~~~~~~
 
 
 As with `ps`, the `get-process` command has many options.  This section of the e-book will be expanded over the next few months but, to start with, these are some of the `ps` examples from the Linux `man` page.
@@ -34,9 +34,9 @@ By default `get-process` shows all of the processes on the current PC or server
 
 If you wanted to just see details of your process you could do this:
 
-````
+~~~~~~~~
 get-process -pid $PID
-````
+~~~~~~~~
 
 `$PID` is an 'automatic variable' which contains the PID (process identifier) of the current process
 
@@ -51,37 +51,37 @@ There is no PowerShell equivalent to the Unix `ps -eJH`, because as I understand
 ### ps -eLf (get info about threads)
 I _think_ this shows information about the processes threads:
 
-````
+~~~~~~~~
 get-process -pid $pid | select -expand threads
-````
+~~~~~~~~
 
 ### ps -U (show particular user)
 
-````
+~~~~~~~~
 get-process -IncludeUserName | ? Username -eq "Ronnie\Matt"
-````
+~~~~~~~~
 
 ## ps -ef | grep firefox 
 
-````
+~~~~~~~~
 get-process firefox
-````
+~~~~~~~~
 
 
 ## pwd
 
 To show your current location in Powershell:
 
-````
+~~~~~~~~
 Get-Location 
-````
+~~~~~~~~
 
 ...or there are aliases `gl` and `pwd`.
 
 There is also a built-in variable
 
-````
+~~~~~~~~
 $pwd
-````
+~~~~~~~~
 
 

@@ -3,18 +3,18 @@
 ## mailx
 To send an email from the PowerShell command line, this worked for me:
 
-````
+~~~~~~~~
 $PSEmailServer = "exchange_server.domain.co.uk"
 send-mailmessage -to eden.hazard@gmail.com -from matt@here.co.uk -subject "Hello"
-````
+~~~~~~~~
 
 ## man
 
 The Powershell equivalent of `man` is:
 
-````
+~~~~~~~~
 get-help 
-````
+~~~~~~~~
 
 `get-help` has the following built-in aliases:
 
@@ -37,7 +37,7 @@ There's no seperate command for this in PowerShell, because the `get-help` comma
 
 So, if you type `get-help get-process` you would get this:
 
-````
+~~~~~~~~
 NAME
     Get-Process
 
@@ -49,11 +49,11 @@ SYNTAX
     Get-Process [[-Name] <String[]>] [-ComputerName <String[]>] [-FileVersionInfo] [-Module] [<CommonParameters>]
 
 etc....
-````
+~~~~~~~~
 
 ...whereas if you typed `get-help process` you would get a list of help topics related to 'process'[1]:
 
-````
+~~~~~~~~
 Name          Category Synopsis
 ----          -------- --------
 Debug-Process Cmdlet   Debugs one or more processes running on the local computer.
@@ -62,7 +62,7 @@ Start-Process Cmdlet   Starts one or more processes on the local computer.
 Stop-Process  Cmdlet   Stops one or more running processes.
 Wait-Process  Cmdlet   Waits for the processes to be stopped before accepting more input.
 
-````
+~~~~~~~~
 
 ## more
 
@@ -76,9 +76,9 @@ The Powershell `more` is a wrapper for `more.com`[2], which is an old Microsoft 
 
 The PowerShell equivalent of `mv` is:
 
-````
+~~~~~~~~
 Rename-Item 
-````
+~~~~~~~~
 
 ## Footnotes
 ---
@@ -89,6 +89,6 @@ Rename-Item
 
 To see what the command actually does I ran:
 
-````
+~~~~~~~~
 get-command more | select definition | format-list
-````
+~~~~~~~~
